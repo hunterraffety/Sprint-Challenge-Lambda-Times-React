@@ -1,7 +1,7 @@
 import React from 'react';
 
 // imports
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // Refactor this component to use styled components and not classNames.
 // You can find the corresponding CSS in the CSS/index.css file
@@ -19,11 +19,24 @@ const HeaderContainer = styled.div`
   padding-bottom: 15px;
 `;
 
-const Date = styled.span`
+const Span = styled.span`
   align-self: flex-end;
   font-size: 11px;
   font-weight: bold;
   letter-spacing: 1px;
+  ${props =>
+    props.Date &&
+    css`
+      margin-left: 25px;
+      flex: 1;
+    `};
+  ${props =>
+    props.Temp &&
+    css`
+      text-align: right;
+      margin-right: 25px;
+      flex: 1;
+    `}
 `;
 
 const HeaderH1 = styled.h1`
@@ -35,22 +48,14 @@ const HeaderH1 = styled.h1`
   color: #000;
 `;
 
-const Temp = styled.span`
-  text-align: right;
-  margin-right: 25px;
-  flex: 1;
-`;
-
 const Header = () => {
   return (
     <HeaderContainer>
-      <Date />
-      <HeaderH1 />
-      <Temp />
+      <Span Date>June 7, 2019</Span>
+      <HeaderH1>Lambda Times</HeaderH1>
+      <Span Temp>102°</Span>
     </HeaderContainer>
   );
 };
-
-// so broke currently. :|
 
 export default Header;
