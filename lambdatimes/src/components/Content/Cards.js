@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
+import CardDisplay from '../Card';
 
 const Cards = props => {
   console.log(`Props from Cards.js`, props);
