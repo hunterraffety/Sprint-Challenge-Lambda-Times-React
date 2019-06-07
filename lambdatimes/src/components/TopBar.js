@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // Refactor this component to use styled components and not classNames.
 // You can find the corresponding CSS in the CSS/index.css file
@@ -35,19 +35,31 @@ const ContainerLeft = styled.div`
   font-size: 11px;
 `;
 
-const SpansLeft = styled.span`
+const Spans = styled.span`
   cursor: pointer;
-  margin-right: 25%;
-  font-weight: bold;
-`;
-
-const SpansCenter = styled.span`
-  cursor: pointer;
-  margin-right: 5%;
-`;
-
-const SpansRight = styled.span`
-  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+  ${props =>
+    props.Left &&
+    css`
+      margin-right: 25%;
+      font-weight: bold;
+    `};
+  ${props =>
+    props.Center &&
+    css`
+      cursor: pointer;
+      margin-right: 5%;
+    `}
+  ${props =>
+    props.Right &&
+    css`
+      cursor: pointer;
+    `}
 `;
 
 const ContainerCenter = styled.div`
@@ -74,23 +86,24 @@ const TopBar = () => {
     <TopBarContainer>
       <Container>
         <ContainerLeft>
-          <SpansLeft>TOPICS</SpansLeft>
-          <SpansLeft>SEARCH</SpansLeft>
+          <Spans Left>TOPICS</Spans>
+          <Spans Left>SEARCH</Spans>
         </ContainerLeft>
         <ContainerCenter>
-          <SpansCenter>GENERAL</SpansCenter>
-          <SpansCenter>BROWNBAG</SpansCenter>
-          <SpansCenter>RANDOM</SpansCenter>
-          <SpansCenter>MUSIC</SpansCenter>
-          <SpansCenter>ANNOUNCEMENTS</SpansCenter>
+          <Spans Center>GENERAL</Spans>
+          <Spans Center>BROWNBAG</Spans>
+          <Spans Center>RANDOM</Spans>
+          <Spans Center>MUSIC</Spans>
+          <Spans Center>ANNOUNCEMENTS</Spans>
         </ContainerCenter>
         <ContainerRight>
-          <SpansRight>LOG IN</SpansRight>
+          <Spans Right>LOG IN</Spans>
         </ContainerRight>
       </Container>
     </TopBarContainer>
   );
 };
+
 /* const TopBar = () => {
   return (
     <div className='top-bar'>
