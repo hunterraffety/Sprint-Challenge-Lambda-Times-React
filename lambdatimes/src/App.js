@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TopBar from './components/TopBar';
 import Header from './components/Header';
 import Content from './components/Content/Content';
+import Carousel from './components/Carousel/Carousel';
 import styled from 'styled-components';
 
 const AppContainer = styled.div`
@@ -18,6 +19,7 @@ const App = () => {
     <AppContainer>
       <TopBar />
       <Header />
+      <Carousel />
       <Content />
     </AppContainer>
   );
