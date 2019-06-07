@@ -5,12 +5,12 @@ import Content from './components/Content/Content';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className='App'>
       <TopBar />
       <Header />
       <Content />
     </div>
   );
-}
+};
 
 export default App;
